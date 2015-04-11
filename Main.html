@@ -1,0 +1,51 @@
+
+<style>
+
+    .unselected {
+        border: solid black 2px;
+    }
+
+    .selected div{
+        border: solid green 2px;
+    }
+
+
+    .grouped div{
+        border: solid red 2px;
+    }
+
+</style>
+
+<div ng-controller="MainController as controller" >
+
+    <div ng-repeat="group in controller.imageGroups">
+        <image-group class="grouped"  images="group.images"></image-group>
+    </div>
+
+
+    <br/>
+
+    <detailed-image-box ng-repeat="image in controller.ungroupedImages"
+                        image="image"
+                        ng-click="isSelected = controller.onImageSelect(image)"
+                        ng-class="{'selected': isSelected == true }"
+
+            ></detailed-image-box>
+
+
+
+
+    <br/>
+
+    <div>
+
+        <button ng-show="controller.selectedImages.length > 0" ng-click="controller.onCreateImageGroup()"  >Create Group</button>
+
+    </div>
+
+
+    <br/>
+
+    <multifileuploader delegate="controller.onImageAdded(url)" ></multifileuploader>
+    
+</div>
