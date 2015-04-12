@@ -12,6 +12,14 @@
 
     .mainContainer {
         padding: 10px;
+        background-color: #949497;
+    }
+
+    .ungroupedContainer{
+        background-color: #EEEEEE;
+        padding: 9px 14px;
+        border: 1px solid #e1e1e8;
+        border-radius: 4px;
     }
 
 </style>
@@ -27,13 +35,19 @@
 
     <br/>
 
-    <detailed-image-box ng-repeat="image in controller.ungroupedImages"
-                        image="image"
-                        ng-click="controller.onImageSelect(image)"
-                        ng-class="{'selected': controller.selectedImages.indexOf(image) >= 0 }"
+    <div class="ungroupedContainer" ng-show="controller.ungroupedImages.length > 0">
 
-            ></detailed-image-box>
+        <h3>Click To Add To Groups</h3>
 
+        <detailed-image-box
+                            ng-repeat="image in controller.ungroupedImages"
+                            image="image"
+                            ng-click="controller.onImageSelect(image)"
+                            ng-class="{'selected': controller.selectedImages.indexOf(image) >= 0 }"
+
+                ></detailed-image-box>
+
+    </div>
 
 
 
