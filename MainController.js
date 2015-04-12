@@ -5,7 +5,6 @@ var MainController = (function () {
         this.ungroupedImages = [];
         this.imageGroups = [];
         this.selectedImages = [];
-        console.log("Creating main controller");
     }
     MainController.prototype.onCreateImageGroup = function () {
         var _this = this;
@@ -19,8 +18,6 @@ var MainController = (function () {
         this.imageGroups.push(newGroup);
     };
     MainController.prototype.onImageSelect = function (detailedImage) {
-        console.log("SelectedImages:", this.selectedImages);
-        console.log("Image selected");
         var indexOf = this.selectedImages.indexOf(detailedImage);
         if (indexOf == -1) {
             this.selectedImages.push(detailedImage);

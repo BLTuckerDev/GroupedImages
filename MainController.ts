@@ -1,31 +1,22 @@
 ///<reference path="Image.ts"/>
 ///<reference path="ImageGroup.ts"/>
 
-
-
 class MainController{
 
+    private ungroupedImages: DetailedImage[];
 
-    public ungroupedImages: DetailedImage[];
+    private imageGroups: ImageGroup[];
 
-    public imageGroups: ImageGroup[];
-
-
-    public selectedImages: DetailedImage[];
-
+    private selectedImages: DetailedImage[];
 
     constructor(){
-
         this.ungroupedImages = [];
         this.imageGroups = [];
         this.selectedImages = [];
-
-        console.log("Creating main controller");
     }
 
 
     public onCreateImageGroup(){
-
 
         var newGroup = new ImageGroup();
 
@@ -38,19 +29,12 @@ class MainController{
         this.selectedImages.length = 0;
 
         this.imageGroups.push(newGroup);
-
     }
 
 
     public onImageSelect(detailedImage: DetailedImage) : boolean{
 
-
-
-
-        console.log("SelectedImages:", this.selectedImages);
-        console.log("Image selected");
         var indexOf = this.selectedImages.indexOf(detailedImage);
-
 
         if(indexOf == -1){
             this.selectedImages.push(detailedImage);
@@ -65,5 +49,4 @@ class MainController{
         var detailedImage = new DetailedImage(url, "title", "description");
         this.ungroupedImages.push(detailedImage);
     }
-
 }

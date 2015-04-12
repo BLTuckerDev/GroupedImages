@@ -1,8 +1,5 @@
 ///<reference path="Image.ts"/>
 
-
-
-
 class ImageGroup{
 
     public images: DetailedImage[];
@@ -10,5 +7,4 @@ class ImageGroup{
     constructor(){
         this.images = [];
     }
-
 }
