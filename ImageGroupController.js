@@ -3,8 +3,8 @@ var ImageGroupController = (function () {
     function ImageGroupController($scope) {
         this.images = $scope.images;
         this.selectedImages = $scope.selectedImages;
-        this.directiveScope = $scope;
         this.ungroupedImagePool = $scope.imagePool;
+        this.groupTitle = "Group " + $scope.groupTitle;
     }
     ImageGroupController.prototype.OnAddToGroupClick = function () {
         var _this = this;

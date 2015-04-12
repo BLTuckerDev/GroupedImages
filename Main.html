@@ -27,7 +27,9 @@
 <div class="mainContainer" ng-controller="MainController as controller" >
 
     <div ng-repeat="group in controller.imageGroups">
-        <image-group class="grouped"  images="group.images"
+        <image-group class="grouped"
+                     group-title="$index"
+                     images="group.images"
                      selected-images="controller.selectedImages"
                     image-pool="controller.ungroupedImages"></image-group>
     </div>
@@ -39,29 +41,22 @@
 
         <h3>Click To Add To Groups</h3>
 
-        <detailed-image-box
-                            ng-repeat="image in controller.ungroupedImages"
+        <detailed-image-box ng-repeat="image in controller.ungroupedImages"
                             image="image"
                             ng-click="controller.onImageSelect(image)"
-                            ng-class="{'selected': controller.selectedImages.indexOf(image) >= 0 }"
-
-                ></detailed-image-box>
+                            ng-class="{'selected': controller.selectedImages.indexOf(image) >= 0 }" ></detailed-image-box>
 
     </div>
-
-
 
     <br/>
 
     <div>
-
-        <button ng-show="controller.selectedImages.length > 0" ng-click="controller.onCreateImageGroup()"  >Create Group</button>
-
+        <button class="btn btn-success" ng-show="controller.selectedImages.length > 0" ng-click="controller.onCreateImageGroup()"  >Create Group</button>
     </div>
 
 
     <br/>
 
-    <multifileuploader delegate="controller.onImageAdded(url)" ></multifileuploader>
+    <multifileuploader ng-hide="controller.ungroupedImages.length > 0" class="btn btn-primary" delegate="controller.onImageAdded(url)" ></multifileuploader>
     
 </div>

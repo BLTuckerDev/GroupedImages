@@ -3,21 +3,20 @@
 class ImageGroupController{
 
 
-    public images : DetailedImage[];
+    private images : DetailedImage[];
 
-    public selectedImages: DetailedImage[];
+    private selectedImages: DetailedImage[];
 
-    public ungroupedImagePool: DetailedImage[];
+    private ungroupedImagePool: DetailedImage[];
 
-    private directiveScope;
+    private groupTitle;
+
 
     constructor($scope){
-
         this.images = $scope.images;
         this.selectedImages = $scope.selectedImages;
-        this.directiveScope = $scope;
         this.ungroupedImagePool = $scope.imagePool;
-
+        this.groupTitle = "Group " + $scope.groupTitle;
 
     }
 
