@@ -3,4 +3,5 @@
         <detailed-image-box  ng-repeat="image in controller.images" image="image" ></detailed-image-box>
 
 
+        <button ng-click="controller.OnAddToGroupClick()" ng-show="controller.selectedImages.length > 0"  >Add To Group</button>
 </div>

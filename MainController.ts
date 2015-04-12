@@ -44,8 +44,13 @@ class MainController{
 
     public onImageSelect(detailedImage: DetailedImage) : boolean{
 
+
+
+
+        console.log("SelectedImages:", this.selectedImages);
         console.log("Image selected");
         var indexOf = this.selectedImages.indexOf(detailedImage);
+
 
         if(indexOf == -1){
             this.selectedImages.push(detailedImage);

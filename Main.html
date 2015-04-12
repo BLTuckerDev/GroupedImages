@@ -19,7 +19,9 @@
 <div ng-controller="MainController as controller" >
 
     <div ng-repeat="group in controller.imageGroups">
-        <image-group class="grouped"  images="group.images"></image-group>
+        <image-group class="grouped"  images="group.images"
+                     selected-images="controller.selectedImages"
+                    image-pool="controller.ungroupedImages"></image-group>
     </div>
 
 
@@ -27,8 +29,8 @@
 
     <detailed-image-box ng-repeat="image in controller.ungroupedImages"
                         image="image"
-                        ng-click="isSelected = controller.onImageSelect(image)"
-                        ng-class="{'selected': isSelected == true }"
+                        ng-click="controller.onImageSelect(image)"
+                        ng-class="{'selected': controller.selectedImages.indexOf(image) >= 0 }"
 
             ></detailed-image-box>
 
