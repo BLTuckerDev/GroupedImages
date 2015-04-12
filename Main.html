@@ -5,7 +5,7 @@
         border: solid black 2px;
     }
 
-    .selected div{
+    .selected > div{
         border: solid green 2px;
     }
 
@@ -14,9 +14,13 @@
         border: solid red 2px;
     }
 
+    .mainContainer {
+        padding: 10px;
+    }
+
 </style>
 
-<div ng-controller="MainController as controller" >
+<div class="mainContainer" ng-controller="MainController as controller" >
 
     <div ng-repeat="group in controller.imageGroups">
         <image-group class="grouped"  images="group.images"
